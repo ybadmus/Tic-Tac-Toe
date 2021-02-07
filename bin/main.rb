@@ -24,8 +24,8 @@ class Users
       available_moves
       user_input = gets.chomp
       puts "You selected #{user_input}!"
-      puts 'It is a winning move' if user_input == "6"
-      puts 'It is a draw move' if user_input == "3"
+      puts 'It is a winning move' if user_input == '6'
+      puts 'It is a draw move' if user_input == '3'
       unless @cells.include? user_input.to_i
         puts 'Invalid move!'
         next
