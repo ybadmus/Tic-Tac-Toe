@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
 class Users
   MAX_COUNTS = 9
@@ -76,7 +76,7 @@ class Users
   end
 end
 
-# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
 puts 'Press enter to start game'
 gets.chomp
