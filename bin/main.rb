@@ -20,7 +20,7 @@ class Users
 
   def take_turns
     (0..MAX_COUNTS).each do |_i|
-      puts "Player #{@next_player ? '2' : '1'} - #{@next_player ? @player2 : @player1} , Select from the available moves!"
+      puts "Player #{@next_player ? '2' : '1'} - #{@next_player ? @player2 : @player1},Select an available move!"
       available_moves
       user_input = gets.chomp
       puts "You selected #{user_input}!"
@@ -31,7 +31,7 @@ class Users
         next
       end
 
-      @cells.map! { |item| item == user_input.to_i ? item = "x" : item = item }
+      @cells.map! { |item| item == user_input.to_i ? 'x' : item }
       @next_player ? @second_player_selections << user_input.to_i : @first_player_selections << user_input.to_i
       @counts += 1
       break if check_outcome
