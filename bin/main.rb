@@ -22,17 +22,15 @@ class Users
       puts "Player #{@next_player ? '2' : '1'}, Select from the available moves!"
       available_moves
       user_input = gets.chomp
-
+      puts 'It is a winning move' if user_input == 6
+      puts 'It is a draw move' if user_input == 3
       unless @cells.include? user_input.to_i
         puts 'Invalid move!'
         next
       end
 
-      puts 'It is a winning move'
-      puts 'It is a draw move'
-
-      @cells.reject! { |item| item == user_input.to_i }
-      @next_player ? @second_player_selections << user_input.to_i : @first_player_selections << user_input.to_i
+      # @cells.reject! { |item| item == user_input.to_i }
+      # @next_player ? @second_player_selections << user_input.to_i : @first_player_selections << user_input.to_i
       @counts += 1
       break if check_outcome
     end
