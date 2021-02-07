@@ -1,6 +1,7 @@
-class Logic
-  attr_accessor :cells
+require 'pry'
 
+class Logic
+  attr_reader :MAX_COUNTS
   MAX_COUNTS = 9
   SUCCESS_OUTCOMES = [
     [1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7],
@@ -32,6 +33,6 @@ class Logic
   end
 
   def check_outcome(active_selections)
-    SUCCESS_OUTCOMES.include? active_selections ? true : false
+    SUCCESS_OUTCOMES.include? active_selections
   end
 end

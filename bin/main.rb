@@ -13,10 +13,9 @@ puts 'Player 2: Choose a nickname'
 player2 = gets.chomp
 users = Users.new(player1, player2)
 logic = Logic.new
+max_count = logic.MAX_COUNTS
 
-max_count = 9
-
-(0..max_count).each do |_i|
+(0...max_count).each do |_i|
   active_player = users.second_player ? users.player2 : users.player1
   puts "Player #{users.second_player ? '2' : '1'} - #{active_player}, select an available move!"
   logic.available_moves
@@ -30,6 +29,12 @@ max_count = 9
 
   users.second_player ? users.second_player_selections << user_input : users.first_player_selections << user_input
   active_selections = users.second_player ? users.second_player_selections : users.first_player_selections
-  logic.check_outcome(active_selections) ? users.winner : users.second_player = !users.second_player
-  _i += 1
+  if logic.check_outcome(active_selections)
+    puts users.winner 
+    break
+  elsif(_i == max_count)
+    puts users.draw
+  else 
+    users.second_player = !users.second_player
+  end
 end

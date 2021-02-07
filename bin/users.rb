@@ -1,3 +1,5 @@
+require 'pry'
+
 class Users
   attr_accessor :player1, :player2, :second_player, :first_player_selections, :second_player_selections
 
@@ -10,11 +12,12 @@ class Users
   end
 
   def winner
+    binding.pry
     player_name = @second_player ? @player2 : @player1
-    puts "#{player_name} has won the game!"
+    "#{player_name} has won the game!"
   end
 
   def draw
-    puts "It's a tie, neither #{player1} nor #{player2} was able to win the game!"
+    "It's a tie, neither #{player1} nor #{player2} was able to win the game!"
   end
 end
