@@ -20,12 +20,10 @@ class Users
 
   def take_turns
     (0..MAX_COUNTS).each do |_i|
-      puts "Player #{@next_player ? '2' : '1'} - #{@next_player ? @player2 : @player1},Select an available move!"
+      puts "Player #{@next_player ? '2' : '1'} - #{@next_player ? @player2 : @player1}, select an available move!"
       available_moves
       user_input = gets.chomp
       puts "You selected #{user_input}!"
-      puts 'It is a winning move' if user_input == '6'
-      puts 'It is a draw move' if user_input == '3'
       unless @cells.include? user_input.to_i
         puts 'Invalid move!'
         next
@@ -44,7 +42,7 @@ class Users
     active_selections = @next_player ? @second_player_selections : @first_player_selections
     if SUCCESS_OUTCOMES.include? active_selections
       player_name = @next_player ? @player2 : @player1
-      puts "#{player_name} has won!"
+      puts "#{player_name} has won the game!"
       gameover
       true
     elsif (SUCCESS_OUTCOMES.include? active_selections) && @counts == MAX_COUNTS
