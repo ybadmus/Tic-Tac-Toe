@@ -1,8 +1,7 @@
 # rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
 class Users
-  attr_accessor :player1, :player2, :next_player
-  attr_accessor :first_player_selections, :second_player_selections
+  attr_accessor :player1, :player2, :next_player, :first_player_selections, :second_player_selections
 
   def initialize(player1, player2)
     @player1 = player1
@@ -18,7 +17,6 @@ class Users
   end
 
   def draw
-    player_name = @next_player ? @player2 : @player1
     puts "It's a tie, neither #{player1} nor #{player2} was able to win the game!"
   end
 end

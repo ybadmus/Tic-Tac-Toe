@@ -1,5 +1,3 @@
-# rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
-
 class Logic
   attr_accessor :cells
 
@@ -14,9 +12,8 @@ class Logic
   end
 
   def take_turns(user_input)
-    unless @cells.include? user_input.to_i
-      return false
-    end
+    return false unless @cells.include? user_input.to_i
+
     @cells.map! { |item| item == user_input.to_i ? 'x' : item }
     true
   end
@@ -36,7 +33,4 @@ class Logic
   def check_outcome(active_selections)
     SUCCESS_OUTCOMES.include? active_selections ? true : false
   end
-
 end
-
-# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity

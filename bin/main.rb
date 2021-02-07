@@ -17,7 +17,8 @@ logic = Logic.new
 max_count = 9
 
 for i in 0..max_count
-  puts "Player #{users.next_player ? '2' : '1'} - #{users.next_player ? users.player2 : users.player1}, select an available move!"
+  active_player = users.next_player ? users.player2 : users.player1
+  puts "Player #{users.next_player ? '2' : '1'} - #{active_player}, select an available move!"
   logic.available_moves
   user_input = gets.chomp
   puts "You selected #{user_input}!"
@@ -31,3 +32,5 @@ for i in 0..max_count
   active_selections = users.next_player ? users.second_player_selections : users.first_player_selections
   logic.check_outcome(active_selections) ? users.winner : users.next_player = !users.next_player
 end
+
+# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
