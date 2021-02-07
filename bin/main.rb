@@ -22,15 +22,15 @@ class Users
       puts "Player #{@next_player ? '2' : '1'}, Select from the available moves!"
       available_moves
       user_input = gets.chomp
-      
+
       unless @cells.include? user_input.to_i
         puts 'Invalid move!'
         next
       end
 
-      puts "It is a winning move"
-      puts "It is a draw move"
-      
+      puts 'It is a winning move'
+      puts 'It is a draw move'
+
       @cells.reject! { |item| item == user_input.to_i }
       @next_player ? @second_player_selections << user_input.to_i : @first_player_selections << user_input.to_i
       @counts += 1
@@ -56,8 +56,6 @@ class Users
       false
     end
   end
-
-  private
 
   def available_moves
     puts <<-HEREDOC
