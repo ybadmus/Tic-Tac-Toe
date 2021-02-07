@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
 class Users
   MAX_COUNTS = 9
@@ -29,8 +30,8 @@ class Users
         next
       end
 
-      # @cells.reject! { |item| item == user_input.to_i }
-      # @next_player ? @second_player_selections << user_input.to_i : @first_player_selections << user_input.to_i
+      @cells.reject! { |item| item == user_input.to_i }
+      @next_player ? @second_player_selections << user_input.to_i : @first_player_selections << user_input.to_i
       @counts += 1
       break if check_outcome
     end
@@ -73,6 +74,8 @@ class Users
     puts 'Game over!'
   end
 end
+
+# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
 puts 'Press enter to start game'
 gets.chomp
