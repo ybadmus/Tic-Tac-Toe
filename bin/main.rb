@@ -20,9 +20,10 @@ class Users
 
   def take_turns
     (0..MAX_COUNTS).each do |_i|
-      puts "Player #{@next_player ? '2' : '1'}, Select from the available moves!"
+      puts "Player #{@next_player ? '2' : '1'} - #{@next_player ? @player2 : @player1} , Select from the available moves!"
       available_moves
       user_input = gets.chomp
+      puts "You selected #{user_input}!"
       puts 'It is a winning move' if user_input == 6
       puts 'It is a draw move' if user_input == 3
       unless @cells.include? user_input.to_i
@@ -30,7 +31,7 @@ class Users
         next
       end
 
-      @cells.reject! { |item| item == user_input.to_i }
+      @cells.map! { |item| item == user_input.to_i ? item = "x" : item = item }
       @next_player ? @second_player_selections << user_input.to_i : @first_player_selections << user_input.to_i
       @counts += 1
       break if check_outcome
@@ -79,9 +80,9 @@ end
 
 puts 'Press enter to start game'
 gets.chomp
-puts 'Player 1: Choose and nickname'
+puts 'Player 1: Choose a nickname'
 player1 = gets.chomp
-puts 'Player 2: Choose and nickname'
+puts 'Player 2: Choose a nickname'
 player2 = gets.chomp
 
 users = Users.new(player1, player2)
