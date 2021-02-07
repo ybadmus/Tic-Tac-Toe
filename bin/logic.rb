@@ -11,10 +11,11 @@ class Logic
     @cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   end
 
-  def take_turns(user_input)
+  def take_turns(user_input, second_player)
     return false unless @cells.include? user_input
 
-    @cells.map! { |item| item == user_input.to_i ? 'x' : item }
+    @cells.map! { |item| item == user_input ? 'x' : item } unless second_player
+    @cells.map! { |item| item == user_input ? 'o' : item } if second_player
     true
   end
 

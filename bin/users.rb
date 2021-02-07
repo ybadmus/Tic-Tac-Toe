@@ -1,16 +1,16 @@
 class Users
-  attr_accessor :player1, :player2, :next_player, :first_player_selections, :second_player_selections
+  attr_accessor :player1, :player2, :second_player, :first_player_selections, :second_player_selections
 
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
-    @next_player = false
+    @second_player = false
     @first_player_selections = []
     @second_player_selections = []
   end
 
   def winner
-    player_name = @next_player ? @player2 : @player1
+    player_name = @second_player ? @player2 : @player1
     puts "#{player_name} has won the game!"
   end
 
