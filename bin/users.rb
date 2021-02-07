@@ -1,5 +1,3 @@
-# rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
-
 class Users
   attr_accessor :player1, :player2, :next_player, :first_player_selections, :second_player_selections
 
@@ -20,5 +18,3 @@ class Users
     puts "It's a tie, neither #{player1} nor #{player2} was able to win the game!"
   end
 end
-
-# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity

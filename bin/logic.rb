@@ -12,7 +12,7 @@ class Logic
   end
 
   def take_turns(user_input)
-    return false unless @cells.include? user_input.to_i
+    return false unless @cells.include? user_input
 
     @cells.map! { |item| item == user_input.to_i ? 'x' : item }
     true
