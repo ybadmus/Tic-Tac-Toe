@@ -1,15 +1,9 @@
 # Tic-Tac-Toe
 
-> This is the third project of Ruby, It's an introduction to the Object Oriented Concepts of the Ruby Programming Language. We built a Tic-Tac-Toe game using several concepts of OOP to understand the syntax for achieving them in Ruby.
+> This is the fourth project of Ruby, It's an introduction to the Object Oriented Concepts of the Ruby Programming Language. We built a Tic-Tac-Toe game using several concepts of OOP to understand the syntax for achieving them in Ruby.
 
-![screenshot](https://raw.githubusercontent.com/ybadmus/Tic-Tac-Toe/Milestone3/app_screenshot.png)
+![screenshot](https://raw.githubusercontent.com/ybadmus/Tic-Tac-Toe/Milestone4/app_screenshot.png)
 
-## Built With
-
-- Ruby
-- Using Linters for Ruby
-- Git, GitHub
-- Using Bundler
 
 ## Getting Started
 
@@ -21,14 +15,31 @@ To get a local copy up and running follow these simple steps.
 - Open terminal on that folder.
 - Run the next command: ´$ruby "bin/main.rb"´
 
+## Usage (Game instructions)
+- First run ./bin/main.rb in the terminal being in the root folder.
+- You will see the welcome screen and the default appearance of the board.
+- The first player will be prompted to place an "X" on the board using numbers between 1 and 9.
+- After the selection, the updated board will be displayed with the placed "X".
+- Now the second player will be prompted to place an "O" on the board using numbers between 1 and 9 but only the available positions.
+- After the selection, the updated board will be displayed with the placed "O".
+- The players will continue entering selections in turns until there is a winner or the game ends in a draw.
+- The winner will be the first player who places three symbols in a line. The line could be horizontal, vertical or diagonal.
+
 
 ## Prerequisites
 
 Before you continue, be sure that you have installed:
 
 - A Git GUI.
-- Ruby and RubyGem
+- Ruby 2.7.x and RubyGem
 - An Integrated Development Environment.
+
+## Built With
+
+- Ruby
+- Using Linters for Ruby
+- Git, GitHub
+- Using Bundler
 
 ## 🤝 Contributing
 
