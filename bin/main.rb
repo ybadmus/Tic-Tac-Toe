@@ -28,7 +28,7 @@ MAX_COUNTS = 9
   if logic.check_outcome(active_selections)
     puts users.winner
     break
-  elsif i == MAX_COUNTS - 1
+  elsif !logic.check_outcome(active_selections) && i == MAX_COUNTS - 1
     puts users.draw
   else
     users.second_player = !users.second_player
