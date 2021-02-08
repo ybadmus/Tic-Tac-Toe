@@ -29,7 +29,7 @@ class Logic
   end
 
   def check_outcome(active_selections)
-    match = SUCCESS_OUTCOMES.select { |item| (item - active_selections).length == 0 } 
-    match.length >= 1 ? true : false
+    match = SUCCESS_OUTCOMES.select { |item| (item - active_selections).length.zero? }
+    match.length >= 1
   end
 end
