@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require './lib/users'
-require './lib/logic'
+require_relative '../lib/users'
+require_relative '../lib/logic'
 
 puts 'Press enter to start a new game'
 gets.chomp
@@ -23,7 +23,7 @@ MAX_COUNTS = 9
 (0...MAX_COUNTS).each do |i|
   active_player = users.second_player ? users.player2 : users.player1
   puts "Player #{users.second_player ? '2' : '1'} - #{active_player}, select an available move!"
-  logic.available_moves
+  puts logic.available_moves
   user_input = gets.chomp.to_i
   puts "You selected #{user_input}!"
 
@@ -35,11 +35,11 @@ MAX_COUNTS = 9
   active_selections = users.second_player ? users.second_player_selections : users.first_player_selections
   if logic.check_outcome(active_selections)
     puts users.winner
-    logic.available_moves
+    puts logic.available_moves
     break
   elsif !logic.check_outcome(active_selections) && i == MAX_COUNTS - 1
     puts users.draw
-    logic.available_moves
+    puts logic.available_moves
   else
     users.second_player = !users.second_player
   end

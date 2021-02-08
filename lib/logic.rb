@@ -17,7 +17,7 @@ class Logic
   end
 
   def available_moves
-    puts <<-HEREDOC
+    <<-HEREDOC
       ---+---+---
       #{@cells[0]} | #{@cells[1]} | #{@cells[2]}
       ---+---+---
