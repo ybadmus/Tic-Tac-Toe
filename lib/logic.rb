@@ -1,8 +1,6 @@
-require 'pry'
-
 class Logic
-  attr_reader :MAX_COUNTS
-  MAX_COUNTS = 9
+  attr_accessor :MAX_COUNTS
+
   SUCCESS_OUTCOMES = [
     [1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7],
     [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]

@@ -1,5 +1,3 @@
-require 'pry'
-
 class Users
   attr_accessor :player1, :player2, :second_player, :first_player_selections, :second_player_selections
 
@@ -12,7 +10,6 @@ class Users
   end
 
   def winner
-    binding.pry
     player_name = @second_player ? @player2 : @player1
     "#{player_name} has won the game!"
   end
