@@ -2,6 +2,7 @@
 
 > This is the fourth project of Ruby, It's an introduction to the Object Oriented Concepts of the Ruby Programming Language. We built a Tic-Tac-Toe game using several concepts of OOP to understand the syntax for achieving them in Ruby.
 
+
 ![screenshot](https://raw.githubusercontent.com/ybadmus/Tic-Tac-Toe/Milestone4/app_screenshot.png)
 
 
@@ -15,6 +16,7 @@ To get a local copy up and running follow these simple steps.
 - Open terminal on that folder.
 - Run the next command: ´$ruby "bin/main.rb"´
 
+
 ## Usage (Game instructions)
 - First run ./bin/main.rb in the terminal being in the root folder.
 - You will see the welcome screen and the default appearance of the board.
@@ -24,7 +26,6 @@ To get a local copy up and running follow these simple steps.
 - After the selection, the updated board will be displayed with the placed "O".
 - The players will continue entering selections in turns until there is a winner or the game ends in a draw.
 - The winner will be the first player who places three symbols in a line. The line could be horizontal, vertical or diagonal.
-
 
 ## Prerequisites
 
@@ -75,7 +76,8 @@ Give a ⭐️ if you like this project!
 
 - [Microverse](https://www.microverse.org)
 - [Ruby-Doc](https://ruby-doc.org/)
-- Our standup team
+- Microverse team 140 - The Cupids
+- The Odin project
 
 ## 📝 License
 
