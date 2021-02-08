@@ -1,89 +1,46 @@
 #!/usr/bin/env ruby
-# rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 
-class Users
-  MAX_COUNTS = 9
-  SUCCESS_OUTCOMES = [
-    [1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7],
-    [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]
-  ].freeze
+require_relative '../lib/users'
+require_relative '../lib/logic'
 
-  def initialize(player1, player2)
-    @cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    @player1 = player1
-    @player2 = player2
-    @counts = 0
-    @next_player = false
-    @first_player_selections = []
-    @second_player_selections = []
-  end
-
-  def take_turns
-    (0..MAX_COUNTS).each do |_i|
-      puts "Player #{@next_player ? '2' : '1'} - #{@next_player ? @player2 : @player1},Select an available move!"
-      available_moves
-      user_input = gets.chomp
-      puts "You selected #{user_input}!"
-      puts 'It is a winning move' if user_input == '6'
-      puts 'It is a draw move' if user_input == '3'
-      unless @cells.include? user_input.to_i
-        puts 'Invalid move!'
-        next
-      end
-
-      @cells.map! { |item| item == user_input.to_i ? 'x' : item }
-      @next_player ? @second_player_selections << user_input.to_i : @first_player_selections << user_input.to_i
-      @counts += 1
-      break if check_outcome
-    end
-  end
-
-  private
-
-  def check_outcome
-    active_selections = @next_player ? @second_player_selections : @first_player_selections
-    if SUCCESS_OUTCOMES.include? active_selections
-      player_name = @next_player ? @player2 : @player1
-      puts "#{player_name} has won!"
-      gameover
-      true
-    elsif (SUCCESS_OUTCOMES.include? active_selections) && @counts == MAX_COUNTS
-      puts "It's a tie!"
-      gameover
-      true
-    else
-      @next_player = !@next_player
-      false
-    end
-  end
-
-  def available_moves
-    puts <<-HEREDOC
-      ---+---+---
-      #{@cells[0]} | #{@cells[1]} | #{@cells[2]}
-      ---+---+---
-      #{@cells[3]} | #{@cells[4]} | #{@cells[5]}
-      ---+---+---
-      #{@cells[6]} | #{@cells[7]} | #{@cells[8]}
-      ---+---+---
-    HEREDOC
-  end
-
-  public
-
-  def gameover
-    puts 'Game over!'
-  end
-end
-
-# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
-
-puts 'Press enter to start game'
+puts 'Press enter to start a new game'
 gets.chomp
 puts 'Player 1: Choose a nickname'
 player1 = gets.chomp
+while player1.empty?
+  puts 'Player 1: Empty name detected, please try again'
+  player1 = gets.chomp
+end
 puts 'Player 2: Choose a nickname'
 player2 = gets.chomp
-
+while player2.empty?
+  puts 'Player 2: Empty name detected, please try again'
+  player2 = gets.chomp
+end
 users = Users.new(player1, player2)
-users.take_turns
+logic = Logic.new
+MAX_COUNTS = 9
+(0...MAX_COUNTS).each do |i|
+  active_player = users.second_player ? users.player2 : users.player1
+  puts "Player #{users.second_player ? '2' : '1'} - #{active_player}, select an available move!"
+  puts logic.available_moves
+  user_input = gets.chomp.to_i
+  puts "You selected #{user_input}!"
+
+  unless logic.take_turns(user_input, users.second_player)
+    puts 'Sorry you selected an invalid move, please try again!'
+    redo
+  end
+  users.second_player ? users.second_player_selections << user_input : users.first_player_selections << user_input
+  active_selections = users.second_player ? users.second_player_selections : users.first_player_selections
+  if logic.check_outcome(active_selections)
+    puts users.winner
+    puts logic.available_moves
+    break
+  elsif !logic.check_outcome(active_selections) && i == MAX_COUNTS - 1
+    puts users.draw
+    puts logic.available_moves
+  else
+    users.second_player = !users.second_player
+  end
+end
