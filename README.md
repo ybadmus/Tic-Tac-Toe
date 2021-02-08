@@ -3,9 +3,9 @@
 > This is the fourth project of Ruby, It's an introduction to the Object Oriented Concepts of the Ruby Programming Language. We built a Tic-Tac-Toe game using several concepts of OOP to understand the syntax for achieving them in Ruby.
 
 
-![screenshot](https://raw.githubusercontent.com/ybadmus/Tic-Tac-Toe/Milestone4/app_screenshot_1.png)
-![screenshot](https://raw.githubusercontent.com/ybadmus/Tic-Tac-Toe/Milestone4/app_screenshot_2.png)
-![screenshot](https://raw.githubusercontent.com/ybadmus/Tic-Tac-Toe/Milestone4/app_screenshot_3.png)
+![screenshot](https://raw.githubusercontent.com/ybadmus/Tic-Tac-Toe/Milestone4/app_screenshot_1.PNG)
+![screenshot](https://raw.githubusercontent.com/ybadmus/Tic-Tac-Toe/Milestone4/app_screenshot_2.PNG)
+![screenshot](https://raw.githubusercontent.com/ybadmus/Tic-Tac-Toe/Milestone4/app_screenshot_3.PNG)
 
 
 ## Getting Started
