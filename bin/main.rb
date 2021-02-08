@@ -7,8 +7,16 @@ puts 'Press enter to start a new game'
 gets.chomp
 puts 'Player 1: Choose a nickname'
 player1 = gets.chomp
+while player1.empty?
+  puts 'Player 1: Empty name detected, please try again'
+  player1 = gets.chomp
+end
 puts 'Player 2: Choose a nickname'
 player2 = gets.chomp
+while player2.empty?
+  puts 'Player 2: Empty name detected, please try again'
+  player2 = gets.chomp
+end
 users = Users.new(player1, player2)
 logic = Logic.new
 MAX_COUNTS = 9
@@ -27,9 +35,11 @@ MAX_COUNTS = 9
   active_selections = users.second_player ? users.second_player_selections : users.first_player_selections
   if logic.check_outcome(active_selections)
     puts users.winner
+    logic.available_moves
     break
   elsif !logic.check_outcome(active_selections) && i == MAX_COUNTS - 1
     puts users.draw
+    logic.available_moves
   else
     users.second_player = !users.second_player
   end
