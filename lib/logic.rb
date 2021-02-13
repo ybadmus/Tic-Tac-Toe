@@ -9,12 +9,20 @@ class Logic
   end
 
   def take_turns(user_input, second_player)
-    return false unless @cells.include? user_input
+    return false unless valid_entry(user_input)
 
     @cells.map! { |item| item == user_input ? 'x' : item } unless second_player
     @cells.map! { |item| item == user_input ? 'o' : item } if second_player
     true
   end
+
+  private
+
+  def valid_entry(user_input)
+    @cells.include? user_input
+  end
+
+  public
 
   def available_moves
     <<-HEREDOC
