@@ -15,6 +15,6 @@ class Users
   end
 
   def draw
-    "It's a tie, neither #{player1} nor #{player2} was able to win the game!"
+    "Its a tie, neither #{player1} nor #{player2} was able to win the game!"
   end
 end
