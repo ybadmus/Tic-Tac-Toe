@@ -1,6 +1,6 @@
 # Tic-Tac-Toe
 
-> Tic-Tac-Toe that implements several OOP concepts in Ruby.
+Tic-Tac-Toe that implements several OOP concepts in Ruby.
 
 
 ![screenshot](https://raw.githubusercontent.com/ybadmus/Tic-Tac-Toe/Milestone4/app_screenshot_1.PNG)
